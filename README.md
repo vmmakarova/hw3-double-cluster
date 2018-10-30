@@ -39,6 +39,8 @@ stars = vizier.query_region(
 )[0]
 ra = star['RAJ2000']._data  # прямое восхождение, аналог долготы
 dec = star['DEJ2000']._data  # склонение, аналог широты
+x1 = (ra - ra.mean()) * np.cos(dec / 180 * np.pi)
+x2 = dec
 ```
 
 В файл `per.json` сохрнаите результаты:
