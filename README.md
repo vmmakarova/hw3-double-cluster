@@ -37,6 +37,6 @@ stars = vizier.query_region(
     height=1.5 * u.deg,
     catalog='USNO-A2.0',
 )[0]
-ra = star['RAJ2000']._data
-dec = star['DEJ2000']._data
+ra = star['RAJ2000']._data  # прямое восхождение, аналог долготы
+dec = star['DEJ2000']._data  # склонение, аналог широты
 ```
