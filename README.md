@@ -3,7 +3,7 @@
 
 В этом задании вы будете восстанавливать параметры смешанных статистических распределений, используя два метода: метод максимального правдоподобия и EM-метод. Научным заданием будет выделение двух рассеянных скоплений  [h и χ Персея](https://apod.nasa.gov/apod/ap091204.html) в звёздном поле.
 
-**Дедлайн 12 ноября в 23:55**
+**Дедлайн 31 октября в 23:55**
 
 Вы должны реализовать следующие алгоритмы в файле `mixfit.py`:
 
@@ -13,8 +13,11 @@
 
 3. **EM-метод для смеси двух двумерных симметричных нормальных распределений с двумерным равномерным распределением** — τ1 N(µ1, σ1) + τ2 N(µ2, σ2) + (1-τ1-τ2) U, считая параметры равномерного распределения фиксированными. Напишите функцию `em_double_cluster(x, uniform_dens, tau1, mu1, sigma1, tau2, mu2, sigma2, rtol=1e-3)`, где `x` — массив `N x 2`, `uniform_dens` — плотность вероятности равномерного распределения.
 
-Напишите в файле `test.py` по одному тесту для первых двух методов.
-Для отладки ваших алгоритмов используйте генераторы случайных чисел: [`scipy.stats.multivariate_normal.rvs`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.multivariate_normal.html) и [`scipy.stats.uniform.rvs`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.uniform.html).
+Обратите внимание, что на этот раз проверка задания будет производиться полу-автоматическим образом.
+Ваш модуль `mixfit` будет импортирован проверочным скриптом, и функции `max_likelihood` и `em_double_gauss` из заданий 1 и 2 будут вызваны на тестовом наборе данных.
+
+Для отладки ваших алгоритмов и самопроверки, вы можете написать несколько [модульных тестов](https://docs.python.org/3/library/unittest.html) в файле `test.py`.
+Для генерации случайных данных подойдут, например, методы [`scipy.stats.multivariate_normal.rvs`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.multivariate_normal.html) и [`scipy.stats.uniform.rvs`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.uniform.html).
 
 Примените последний EM-метод в файле `per.py` для решения задачи нахождения центров и относительного числа звёзд в скоплениях h и χ Персея.
 Вам понадобиться модуль [astroquery.vizier](https://astroquery.readthedocs.io/en/latest/vizier/vizier.html) для того, чтобы загрузить координаты звёзд поля.
