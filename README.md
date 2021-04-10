@@ -30,6 +30,7 @@
 Пример запроса для получения данных:
 
    ```python
+   import numpy as np
    import astropy.units as u
    from astropy.coordinates import SkyCoord
    from astroquery.vizier import Vizier
@@ -47,12 +48,12 @@
        catalog=['I/350'], # Gaia EDR3
    )[0]
 
-   ra = star['RAJ2000']._data  # прямое восхождение, аналог долготы
-   dec = star['DEJ2000']._data  # склонение, аналог широты
-   x1 = (ra - ra.mean()) * np.cos(dec / 180 * np.pi)
+   ra = stars['RAJ2000']._data   # прямое восхождение, аналог долготы
+   dec = stars['DEJ2000']._data  # склонение, аналог широты
+   x1 = (ra - ra.mean()) * np.cos(dec / 180 * np.pi) + ra.mean()
    x2 = dec
-   v1 = star['pmRA']._data
-   v2 = star['pmDE']._data
+   v1 = stars['pmRA']._data
+   v2 = stars['pmDE']._data
 
    ```
 
